@@ -117,7 +117,6 @@
     <ClCompile Include="Src\stm32f1xx_it.c" />
     <ClCompile Include="Src\system_stm32f1xx.c" />
     <ClCompile Include="Src\usart.c" />
-    <ClCompile Include="Src\user_diskio.c" />
     <None Include="stm32.mak" />
     <ClCompile Include="$(BSP_ROOT)\STM32F1xxxx\StartupFiles\startup_stm32f103xe.c" />
     <ClInclude Include="Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f103xe.h" />
@@ -177,7 +176,6 @@
     <ClInclude Include="Inc\stm32f1xx_hal_conf.h" />
     <ClInclude Include="Inc\stm32f1xx_it.h" />
     <ClInclude Include="Inc\usart.h" />
-    <ClInclude Include="Inc\user_diskio.h" />
     <ClInclude Include="Middlewares\Third_Party\FatFs\src\diskio.h" />
     <ClInclude Include="Middlewares\Third_Party\FatFs\src\ff.h" />
     <ClInclude Include="Middlewares\Third_Party\FatFs\src\ffconf_template.h" />

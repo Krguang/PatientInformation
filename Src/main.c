@@ -119,9 +119,8 @@ int main(void)
  
   /* USER CODE BEGIN 2 */
 	Lcd_Initialize();
-	Lcd_ColorBox(0,0,854,480,Blue2);
-	Lcd_ColorBox(0,300,854,1,Black);
-	LCD_DispString_EN_CH(100,200,(uint8_t *)"testºÇºÇÄã¸öÎûÎû",Blue2,Black,64);
+	Lcd_ColorBox(0,0,854,480, Black);
+	LCD_DispString_EN_CH(100,200,(uint8_t *)"testºÇºÇÄã¸öÎûÎû", Black,White,24);
 	
   /* USER CODE END 2 */
 

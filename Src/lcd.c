@@ -366,42 +366,43 @@ static uint8_t GetGBKCode_SD(unsigned char* pBuffer,const uint8_t *pstr,uint8_t 
   {
     // 16*16大小的汉字 其字模 占用16*16/8个字节
     pos=((high8bit-0xa1)*94+low8bit-0xa1)*16*16/8;
-    f_res=f_open(&file,"16.FON",FA_OPEN_EXISTING|FA_READ);
+    f_res=f_open(&file_sd,"16.FON",FA_OPEN_EXISTING|FA_READ);
   }
   else if(font == 24)
   {
     // 24*24大小的汉字 其字模 占用24*24/8个字节
     pos=((high8bit-0xa1)*94+low8bit-0xa1)*24*24/8; 
-    f_res=f_open(&file,"24.FON",FA_OPEN_EXISTING|FA_READ);
-		
+	f_chdrive("1:");
+    f_res=f_open(&file_flash,"f24.FON",FA_OPEN_EXISTING|FA_READ);
+	printf_fatfs_error(f_res);
   }else if(font == 32){
 		pos=((high8bit-0xa1)*94+low8bit-0xa1)*32*32/8; 
-    f_res=f_open(&file,"32.FON",FA_OPEN_EXISTING|FA_READ);
+    f_res=f_open(&file_sd,"32.FON",FA_OPEN_EXISTING|FA_READ);
 	} else {
 		pos=((high8bit-0xa1)*94+low8bit-0xa1)*64*64/8; 
-    f_res=f_open(&file,"64.FON",FA_OPEN_EXISTING|FA_READ);
+    f_res=f_open(&file_sd,"64.FON",FA_OPEN_EXISTING|FA_READ);
 		
 	}
 	
   if(f_res == FR_OK ) 
   {
-    f_lseek (&file, pos);		//指针偏移
+    f_lseek (&file_flash, pos);		//指针偏移
     if(font==16)
     {
-      f_res=f_read(&file,pBuffer,32,&f_num); 
+      f_res=f_read(&file_flash,pBuffer,32,&f_num);
     }
     else if(font ==24)
     {
-      f_res=f_read(&file,pBuffer,72,&f_num);
+      f_res=f_read(&file_flash,pBuffer,72,&f_num);
     }
 		else if (font ==32){
-			f_res=f_read(&file,pBuffer,128,&f_num);
+			f_res=f_read(&file_flash,pBuffer,128,&f_num);
 		}
 		else{
-			f_res=f_read(&file,pBuffer,512,&f_num);
+			f_res=f_read(&file_flash,pBuffer,512,&f_num);
 		}
 		
-    f_close(&file);      
+    f_close(&file_flash);
     return 1;  
   }    
   else

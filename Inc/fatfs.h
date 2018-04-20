@@ -62,23 +62,16 @@
 
 /* USER CODE END Includes */
 
-extern uint8_t retSD; /* Return value for SD */
-extern char SDPath[4]; /* SD logical drive path */
-extern FATFS SDFatFS; /* File system object for SD logical drive */
-extern FIL SDFile; /* File object for SD */
-extern uint8_t retUSER; /* Return value for USER */
-extern char USERPath[4]; /* USER logical drive path */
-extern FATFS USERFatFS; /* File system object for USER logical drive */
-extern FIL USERFile; /* File object for USER */
-
 void MX_FATFS_Init(void);
 
 /* USER CODE BEGIN Prototypes */
 
-extern uint8_t retSPIFLASH;    /* Return value for USER */
-extern char SPIFLASHPath[4];   /* USER logical drive path */
-extern FATFS SPIFLASHFatFS;    /* File system object for USER logical drive */
-extern FIL SPIFLASHFile;       /* File object for USER */
+extern char SPIFLASHPath[4];             /* 串行Flash逻辑设备路径 */
+extern char SDPath[4];                   /* SD卡逻辑设备路径 */
+extern FATFS fs;													/* FatFs文件系统对象 */
+extern FIL file;													/* 文件对象 */
+extern FRESULT f_res;                    /* 文件操作结果 */
+
 
 /* USER CODE END Prototypes */
 #ifdef __cplusplus

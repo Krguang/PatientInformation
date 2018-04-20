@@ -78,23 +78,6 @@ void SystemClock_Config(void);
 
 /* USER CODE BEGIN 0 */
 
-__IO uint32_t DeviceID = 0;
-__IO uint32_t FlashID = 0;
-
-#define  FLASH_WriteAddress     0x00000
-#define  FLASH_ReadAddress      FLASH_WriteAddress
-#define  FLASH_SectorToErase    FLASH_WriteAddress
-
-/* 获取缓冲区的长度 */
-#define countof(a)      (sizeof(a) / sizeof(*(a)))
-#define TxBufferSize1   (countof(TxBuffer1) - 1)
-#define RxBufferSize1   (countof(TxBuffer1) - 1)
-#define BufferSize      (countof(Tx_Buffer)-1)
-
-uint8_t Tx_Buffer[] = " 感谢您选用硬石stm32开发板\n今天是个好日子";
-uint8_t Rx_Buffer[BufferSize];
-
-
 /* USER CODE END 0 */
 
 /**
@@ -138,7 +121,7 @@ int main(void)
 	Lcd_Initialize();
 	Lcd_ColorBox(0,0,854,480,Blue2);
 	Lcd_ColorBox(0,300,854,1,Black);
-	LCD_DispString_EN_CH(100,200,(uint8_t *)"test玩毛塔一木",Blue2,Black,64);
+	LCD_DispString_EN_CH(100,200,(uint8_t *)"test呵呵你个嘻嘻",Blue2,Black,64);
 	
   /* USER CODE END 2 */
 
@@ -150,7 +133,7 @@ int main(void)
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
-	
+
   }
   /* USER CODE END 3 */
 

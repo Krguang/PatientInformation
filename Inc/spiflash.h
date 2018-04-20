@@ -7,7 +7,7 @@
 #define FLASH_SPI_CS_ENABLE()                      HAL_GPIO_WritePin(GPIOD,GPIO_PIN_12,GPIO_PIN_RESET)
 #define FLASH_SPI_CS_DISABLE()                     HAL_GPIO_WritePin(GPIOD,GPIO_PIN_12,GPIO_PIN_SET)
 
-#define  SPI_FLASH_ID                       0XEF4017
+#define  SPI_FLASH_ID                       0XEF4018
 
 
 void SPI_FLASH_SectorErase(uint32_t SectorAddr);

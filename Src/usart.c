@@ -55,8 +55,8 @@
 /* USER CODE BEGIN 0 */
 int fputc(int ch, FILE *f)
 {      
-	while((USART2->SR&0X40)==0);
-	USART2->DR = (uint8_t) ch;      
+	while((USART1->SR&0X40)==0);
+	USART1->DR = (uint8_t) ch;      
 	return ch;
 }
 /* USER CODE END 0 */

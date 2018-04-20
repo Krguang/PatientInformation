@@ -25,7 +25,7 @@
 /* 私有宏定义 ----------------------------------------------------------------*/
 #define SPI_FLASH_SECTOR_SIZE    4096    // 串行Flash扇区大小
 #define SPI_FLASH_START_SECTOR   0    // 串行Flash文件系统FatFS偏移量
-#define SPI_FLASH_SECTOR_COUNT   2048    // 串行Flash文件系统FatFS占用扇区个数    
+#define SPI_FLASH_SECTOR_COUNT   4096    // 串行Flash文件系统FatFS占用扇区个数    
  
 
 /* 私有变量 ------------------------------------------------------------------*/

@@ -73,24 +73,24 @@
 	<linkedResources>
 		
 	<link>
-			<name>Drivers/CMSIS</name>
+			
 			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
+			
 		</link><link>
-			<name>Middlewares/FatFs</name>
+			
 			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
+			
 		</link><link>
-			<name>Middlewares</name>
+			
 			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
+			
 		</link><link>
-			<name>Drivers</name>
+			
 			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
+			
 		</link><link>
-			<name>Application</name>
+			
 			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
+			
 		</link></linkedResources>
 </projectDescription>

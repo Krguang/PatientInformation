@@ -206,6 +206,7 @@ void MX_FATFS_Init(void)
 		}
 	}
 
+
 	/* 注销一个FatFS设备：SD卡 */
 	//FATFS_UnLinkDriver(SDPath);
 

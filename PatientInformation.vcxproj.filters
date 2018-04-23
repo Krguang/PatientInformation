@@ -474,4 +474,9 @@
       <Filter>Header files\Inc</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="背景图.png">
+      <Filter>Resource files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

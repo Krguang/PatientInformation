@@ -7,6 +7,9 @@ uint16_t FRONT_COLOR=Black;	//画笔颜色
 uint16_t BACK_COLOR=White;  //背景色 
 
 
+
+
+
 void Delay(__IO u32 nCount)
 {	
 	volatile int i;
@@ -366,21 +369,20 @@ static uint8_t GetGBKCode_SD(unsigned char* pBuffer,const uint8_t *pstr,uint8_t 
   {
     // 16*16大小的汉字 其字模 占用16*16/8个字节
     pos=((high8bit-0xa1)*94+low8bit-0xa1)*16*16/8;
-    f_res=f_open(&file_sd,"16.FON",FA_OPEN_EXISTING|FA_READ);
+    f_res=f_open(&file_flash,"0:f16.FON",FA_OPEN_EXISTING|FA_READ);
   }
   else if(font == 24)
   {
     // 24*24大小的汉字 其字模 占用24*24/8个字节
     pos=((high8bit-0xa1)*94+low8bit-0xa1)*24*24/8; 
-	f_chdrive("1:");
-    f_res=f_open(&file_flash,"f24.FON",FA_OPEN_EXISTING|FA_READ);
+    f_res=f_open(&file_flash,"0:f24.FON",FA_OPEN_EXISTING|FA_READ);
 	printf_fatfs_error(f_res);
   }else if(font == 32){
 		pos=((high8bit-0xa1)*94+low8bit-0xa1)*32*32/8; 
-    f_res=f_open(&file_sd,"32.FON",FA_OPEN_EXISTING|FA_READ);
+    f_res=f_open(&file_flash,"0:f32.FON",FA_OPEN_EXISTING|FA_READ);
 	} else {
 		pos=((high8bit-0xa1)*94+low8bit-0xa1)*64*64/8; 
-    f_res=f_open(&file_sd,"64.FON",FA_OPEN_EXISTING|FA_READ);
+    f_res=f_open(&file_flash,"0:F64.FON",FA_OPEN_EXISTING|FA_READ);
 		
 	}
 	

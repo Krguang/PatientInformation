@@ -104,7 +104,7 @@ int main(void)
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
-
+  HAL_Delay(3000);
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
@@ -113,14 +113,13 @@ int main(void)
   MX_USART1_UART_Init();
   MX_USART2_UART_Init();
   MX_FSMC_Init();
+  Lcd_Initialize();
   MX_SPI2_Init();
   MX_SDIO_SD_Init();
   MX_FATFS_Init();
- 
   /* USER CODE BEGIN 2 */
-	Lcd_Initialize();
 	Lcd_ColorBox(0,0,854,480, Black);
-	LCD_DispString_EN_CH(100,200,(uint8_t *)"testºÇºÇÄã¸öÎûÎû", Black,White,24);
+	LCD_DispString_EN_CH(100,200,(uint8_t *)"testºÇºÇÄã¸öÎûÎû", Black,White,16);
 	
   /* USER CODE END 2 */
 

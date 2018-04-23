@@ -9,7 +9,38 @@ uint16_t BACK_COLOR=White;  //背景色
 
 void InitBackGround() {
 
+	Lcd_ColorBox(0, 0, 854, 480, BABY_BLUE);
+	Lcd_ColorBox(0, 0, 320, 120, Red);
+	Lcd_ColorBox(320, 0, 534, 120, DEEP_SKY_BLUE);
+	Lcd_ColorBox(320, 70, 107, 50, MARINE_BLUE);
+	Lcd_ColorBox(569, 70, 285, 50, BRIGHT_GREEN);
 
+	Lcd_ColorBox(0, 180, 854, 1, GRAY);
+	Lcd_ColorBox(0, 240, 854, 1, GRAY);
+	Lcd_ColorBox(0, 300, 854, 1, GRAY);
+	Lcd_ColorBox(0, 360, 854, 1, GRAY);
+	Lcd_ColorBox(0, 420, 854, 1, GRAY);
+	Lcd_ColorBox(427, 120, 1, 360, GRAY);
+
+	LCD_DispString_EN_CH(128, 0, "1", Red, White, 128);
+	Lcd_ColorBox(0, 120, 426, 8, BABY_BLUE);
+	LCD_DispString_EN_CH(357, 79, "男", MARINE_BLUE, White, 32);
+	LCD_DispString_EN_CH(482, 79, "10", DEEP_SKY_BLUE, White, 32);
+	LCD_DispString_EN_CH(647, 79, "一级护理", BRIGHT_GREEN, White, 32);
+
+	LCD_DispString_EN_CH(450, 0, "安倍禁食", DEEP_SKY_BLUE, White,64);
+	LCD_DispString_EN_CH(10, 134, "住院号：", BABY_BLUE, Black, 32);
+	LCD_DispString_EN_CH(10, 194, "入院时间：", BABY_BLUE, Black, 32);
+	LCD_DispString_EN_CH(10, 254, "责任医生：", BABY_BLUE, Black, 32);
+	LCD_DispString_EN_CH(10, 314, "责任护士：", BABY_BLUE, Black, 32);
+	LCD_DispString_EN_CH(10, 374, "诊断：", BABY_BLUE, Black, 32);
+	LCD_DispString_EN_CH(10, 434, "其他：", BABY_BLUE, Red, 32);
+
+	LCD_DispString_EN_CH(437, 134, "医保：", BABY_BLUE, Black, 32);
+	LCD_DispString_EN_CH(437, 194, "饮食：", BABY_BLUE, Black, 32);
+	LCD_DispString_EN_CH(437, 254, "隔离：", BABY_BLUE, Black, 32);
+	LCD_DispString_EN_CH(437, 314, "计量：", BABY_BLUE, Black, 32);
+	
 }
 
 
@@ -439,6 +470,7 @@ void LCD_DispChar_EN( uint16_t x, uint16_t y, char num, uint16_t usColor_Backgro
 		else if(size==24)temp=asc2_2412[num][t];	//调用2412字体
 		else if(size == 32) temp = asc2_3216[num][t];//调用3216字体
 		else if(size == 64) temp = asc2_6432[num][t];
+		else if (size == 128) temp = asc2_12864[num][t];
 		else return;								//没有的字库
 		for(t1=0;t1<8;t1++)
 		{			    

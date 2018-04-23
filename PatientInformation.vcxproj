@@ -169,7 +169,6 @@
     <ClInclude Include="Inc\gpio.h" />
     <ClInclude Include="Inc\lcd.h" />
     <ClInclude Include="Inc\main.h" />
-    <ClInclude Include="Inc\MM_T035.h" />
     <ClInclude Include="Inc\sdio.h" />
     <ClInclude Include="Inc\spi.h" />
     <ClInclude Include="Inc\spiflash.h" />

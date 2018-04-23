@@ -464,9 +464,6 @@
     <ClInclude Include="Inc\lcd.h">
       <Filter>Header files\Inc</Filter>
     </ClInclude>
-    <ClInclude Include="Inc\MM_T035.h">
-      <Filter>Header files\Inc</Filter>
-    </ClInclude>
     <ClInclude Include="Inc\spiflash.h">
       <Filter>Header files\Inc</Filter>
     </ClInclude>

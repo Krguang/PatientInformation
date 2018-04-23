@@ -65,9 +65,10 @@ void LCD_DispString_EN_CH(uint16_t usX,uint16_t usY,const uint8_t *pstr,uint16_t
 #define Cyan           0x7FFF
 #define Yellow         0xFFE0
 
-#define BABY_BLUE		0xE7FF
-#define BRIGHT_GREEN	0x67E0
-#define DEEP_SKY_BLUE	0x5FF
-#define MARINE_BLUE		0x22F
+#define GRAY			0x7412
+#define BABY_BLUE		0xE7FF		//浅蓝
+#define BRIGHT_GREEN	0x67E0		//明绿
+#define DEEP_SKY_BLUE	0x5FF		//深空蓝
+#define MARINE_BLUE		0x22F		//水手蓝
 #endif
 

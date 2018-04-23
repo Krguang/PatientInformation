@@ -21,19 +21,13 @@
 
 
 //Lcd初始化及其低级控制函数
-void Lcd_Configuration(void);
-void DataToWrite(u16 data);
+void InitBackGround(void);
 void Lcd_Initialize(void);
 void LCD_WR_REG(u16 Index,u16 CongfigTemp);
-void Lcd_WR_Start(void);
-//Lcd高级控制函数
 void Lcd_ColorBox(u16 x,u16 y,u16 xLong,u16 yLong,u32 Color);
-void DrawPixel(u16 x, u16 y, u16 Color);
 
 void LCD_Fill_Pic(u16 x, u16 y,u16 pic_H, u16 pic_V, const unsigned char* pic);
 void BlockWrite(unsigned int Xstart,unsigned int Xend,unsigned int Ystart,unsigned int Yend);
-
-void LCD_ShowString(uint16_t x,uint16_t y,uint16_t width,uint16_t height,u8 size,u8 *p);
 
 void LCD_DispString_CH(uint16_t usX,uint16_t usY,const uint8_t *pstr,uint16_t usColor_Background, uint16_t usColor_Foreground,uint8_t font);
 void LCD_DispString_EN_CH(uint16_t usX,uint16_t usY,const uint8_t *pstr,uint16_t usColor_Background, uint16_t usColor_Foreground,uint8_t font);

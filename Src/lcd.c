@@ -7,7 +7,10 @@ uint16_t FRONT_COLOR=Black;	//»­±ÊÑÕÉ«
 uint16_t BACK_COLOR=White;  //±³¾°É« 
 
 
+void InitBackGround() {
 
+
+}
 
 
 void Delay(__IO u32 nCount)

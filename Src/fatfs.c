@@ -49,14 +49,6 @@
 #include "fatfs.h"
 #include "lcd.h"
 
-//uint8_t retSD;    /* Return value for SD */
-//char SDPath[4];   /* SD logical drive path */
-//FATFS SDFatFS;    /* File system object for SD logical drive */
-//FIL file;       /* File object for SD */
-//uint8_t retUSER;    /* Return value for USER */
-//char USERPath[4];   /* USER logical drive path */
-//FATFS USERFatFS;    /* File system object for USER logical drive */
-//FIL USERFile;       /* File object for USER */
 
 
 /* USER CODE BEGIN Variables */
@@ -70,8 +62,6 @@ FIL file_sd;													/* 文件对象 */
 FIL file_flash;													/* 文件对象 */
 FRESULT f_res;                    /* 文件操作结果 */
 UINT fnum;            					  /* 文件成功读写数量 */
-BYTE ReadBuffer[1024] = { 0 };        /* 读缓冲区 */
-BYTE WriteBuffer[] = "欢迎使用硬石STM32开发板 今天是个好日子，新建文件系统测试文件\n";/* 写缓冲区*/
 
 BYTE buffer[4096] = { 0 };
 UINT br, bw;
@@ -130,57 +120,6 @@ void MX_FATFS_Init(void)
 			printf("》flash文件系统挂载成功，可以进行读写测试\n");
 
 		}
-
-		/*----------------------- 文件系统测试：写测试 -----------------------------*/
-		/* 打开文件，如果文件不存在则创建它 */
-		printf("****** 即将进行文件写入测试... ******\n");
-		f_res = f_open(&file_flash, "flash.txt", FA_CREATE_ALWAYS | FA_WRITE);
-		printf_fatfs_error(f_res);
-		if (f_res == FR_OK)
-		{
-			printf("》打开/创建flash.txt文件成功，向文件写入数据。\n");
-			/* 将指定存储区内容写入到文件内 */
-			f_res = f_write(&file_flash, WriteBuffer, sizeof(WriteBuffer), &fnum);
-			if (f_res == FR_OK)
-			{
-				printf("》文件写入成功，写入字节数据：%d\n", fnum);
-				printf("》向文件写入的数据为：\n%s\n", WriteBuffer);
-			}
-			else
-			{
-				printf("！！文件写入失败：(%d)\n", f_res);
-			}
-			/* 不再读写，关闭文件 */
-			f_close(&file_flash);
-		}
-		else
-		{
-			printf("！！打开/创建文件失败。\n");
-		}
-
-		/*------------------- 文件系统测试：读测试 ------------------------------------*/
-		printf("****** 即将进行文件读取测试... ******\n");
-		f_res = f_open(&file_flash, "flash.txt", FA_OPEN_EXISTING | FA_READ);
-		if (f_res == FR_OK)
-		{
-			printf("》打开文件成功。\n");
-			f_res = f_read(&file_flash, ReadBuffer, sizeof(ReadBuffer), &fnum);
-			if (f_res == FR_OK)
-			{
-				printf("》文件读取成功,读到字节数据：%d\n", fnum);
-				printf("》读取得的文件数据为：\n%s \n", ReadBuffer);
-			}
-			else
-			{
-				printf("！！文件读取失败：(%d)\n", f_res);
-			}
-		}
-		else
-		{
-			printf("！！打开文件失败。\n");
-		}
-		/* 不再读写，关闭文件 */
-		f_close(&file_flash);
 	}
 
 	/* 注销一个FatFS设备：串行FLASH */

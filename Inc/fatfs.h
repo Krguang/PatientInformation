@@ -68,10 +68,8 @@ void MX_FATFS_Init(void);
 
 extern char SPIFLASHPath[4];             /* 串行Flash逻辑设备路径 */
 extern char SDPath[4];                   /* SD卡逻辑设备路径 */
-extern FATFS fs;													/* FatFs文件系统对象 */
 extern FIL file_sd;													/* 文件对象 */
-extern FIL file_flash;
-//extern FIL file;													/* 文件对象 */
+extern FIL file_flash;												/* 文件对象 */
 extern FRESULT f_res;                    /* 文件操作结果 */
 void printf_fatfs_error(FRESULT fresult);
 

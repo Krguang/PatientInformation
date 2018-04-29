@@ -49,8 +49,6 @@
 #include "fatfs.h"
 #include "lcd.h"
 
-
-
 /* USER CODE BEGIN Variables */
 
 char SPIFLASHPath[4];             /* 串行Flash逻辑设备路径 */
@@ -70,14 +68,14 @@ void copyTF2Flash(uint8_t * tfName, uint8_t * flashName);
 
 /* USER CODE END Variables */    
 
-void MX_FATFS_Init(void)
+void MX_FATFS_Init(void) 
 {
-	/*## FatFS: Link the SD driver ###########################*/
-	//retSD = FATFS_LinkDriver(&SD_Driver, SDPath);
-	/*## FatFS: Link the USER driver ###########################*/
+  /*## FatFS: Link the SD driver ###########################*/
+ // retSD = FATFS_LinkDriver(&SD_Driver, SDPath);
+  /*## FatFS: Link the USER driver ###########################*/
+//  retUSER = FATFS_LinkDriver(&USER_Driver, USERPath);
 
-
-	/* USER CODE BEGIN Init */
+  /* USER CODE BEGIN Init */
 
 	printf("****** 这是一个基于串行FLASH的FatFS文件系统实验 ******\n");
 	if (FATFS_LinkDriver(&SPIFLASH_Driver, SPIFLASHPath) == 0) {
@@ -187,7 +185,22 @@ void MX_FATFS_Init(void)
   /* USER CODE END Init */
 }
 
-void copyTF2Flash(uint8_t * tfName,uint8_t * flashName) {
+/**
+  * @brief  Gets Time from RTC 
+  * @param  None
+  * @retval Time in DWORD
+  */
+DWORD get_fattime(void)
+{
+  /* USER CODE BEGIN get_fattime */
+  return 0;
+  /* USER CODE END get_fattime */  
+}
+
+/* USER CODE BEGIN Application */
+   
+
+void copyTF2Flash(uint8_t * tfName, uint8_t * flashName) {
 
 	f_res = f_open(&file_sd, tfName, FA_OPEN_EXISTING | FA_READ);
 	printf_fatfs_error(f_res);
@@ -211,20 +224,6 @@ void copyTF2Flash(uint8_t * tfName,uint8_t * flashName) {
 	f_close(&file_flash);
 }
 
-/**
-  * @brief  Gets Time from RTC 
-  * @param  None
-  * @retval Time in DWORD
-  */
-DWORD get_fattime(void)
-{
-  /* USER CODE BEGIN get_fattime */
-  return 0;
-  /* USER CODE END get_fattime */  
-}
-
-/* USER CODE BEGIN Application */
-     
 /**
 * 函数功能: FatFS文件系统操作结果信息处理.
 * 输入参数: FatFS文件系统操作结果：FRESULT

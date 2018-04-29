@@ -80,13 +80,14 @@ void MX_FATFS_Init(void)
 	printf("****** 这是一个基于串行FLASH的FatFS文件系统实验 ******\n");
 	if (FATFS_LinkDriver(&SPIFLASH_Driver, SPIFLASHPath) == 0) {
 
-		printf("当前设备数量： %d  \n", FATFS_GetAttachedDriversNbr());
-		printf("当前设备路径： %s \n", SPIFLASHPath);
+	//	printf("当前设备数量： %d  \n", FATFS_GetAttachedDriversNbr());
+	//	printf("当前设备路径： %s \n", SPIFLASHPath);
 		//在串行FLASH挂载文件系统，文件系统挂载时会对串行FLASH初始化
 		f_res = f_mount(&fs_flash, (TCHAR const*)SPIFLASHPath, 1);
-		printf_fatfs_error(f_res);
+	//	printf_fatfs_error(f_res);
 		/*----------------------- 格式化测试 ---------------------------*/
 		/* 如果没有文件系统就格式化创建创建文件系统 */
+		
 		if (f_res == FR_NO_FILESYSTEM)
 		{
 			printf("》串行FLASH还没有文件系统，即将进行格式化...\n");
@@ -111,12 +112,20 @@ void MX_FATFS_Init(void)
 		{
 			printf("！！串行FLASH挂载文件系统失败。(%d)\n", f_res);
 			printf_fatfs_error(f_res);
-			//while (1);
+			while (1) {
+				HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
+				HAL_Delay(1000);
+				f_res = f_mount(NULL, (TCHAR const*)SPIFLASHPath, 1);
+				FATFS_UnLinkDriver(SPIFLASHPath);
+				FATFS_LinkDriver(&SPIFLASH_Driver, SPIFLASHPath);
+				f_res = f_mount(&fs_flash, (TCHAR const*)SPIFLASHPath, 1);
+				LCD_DispChar_EN(363, 224, "mount flash", BABY_BLUE, Black, 32);
+				if (f_res == 0) break;
+			}
 		}
 		else
 		{
 			printf("》flash文件系统挂载成功，可以进行读写测试\n");
-
 		}
 	}
 

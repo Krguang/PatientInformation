@@ -251,7 +251,18 @@ HAL_Delay(10);
 WriteComm(0x29); // Display On 
 
 Lcd_Light_ON;
-
+Lcd_ColorBox(0, 0, 854, 480, BABY_BLUE);
+//LCD_DispString_EN_CH(363, 224, "starting", BABY_BLUE, Black, 32);
+//HAL_Delay(1000);
+//LCD_DispString_EN_CH(363, 224, "starting.", BABY_BLUE, Black, 32);
+//HAL_Delay(1000);
+//LCD_DispString_EN_CH(363, 224, "starting..", BABY_BLUE, Black, 32);
+//HAL_Delay(1000);
+//LCD_DispString_EN_CH(363, 224, "starting...", BABY_BLUE, Black, 32);
+//HAL_Delay(1000);
+//LCD_DispString_EN_CH(363, 224, "starting....", BABY_BLUE, Black, 32);
+//HAL_Delay(1000);
+//LCD_DispString_EN_CH(363, 224, "starting.....", BABY_BLUE, Black, 32);
 }
 /******************************************
 º¯ÊýÃû£ºLcdÐ´ÃüÁîº¯Êý

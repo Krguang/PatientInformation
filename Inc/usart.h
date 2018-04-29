@@ -66,6 +66,11 @@ extern UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN Private defines */
 
+extern char recvTemp;
+extern char USART_RX_BUF[];
+extern char GPS_Buffer[];
+extern volatile uint8_t gpsGetDataFlag;
+
 /* USER CODE END Private defines */
 
 extern void _Error_Handler(char *, int);

@@ -22,13 +22,14 @@ void InitBackGround() {
 	Lcd_ColorBox(0, 420, 854, 1, GRAY);
 	Lcd_ColorBox(427, 120, 1, 360, GRAY);
 
-	LCD_DispString_EN_CH(128, 0, "1", Red, White, 128);
-	Lcd_ColorBox(0, 120, 426, 8, BABY_BLUE);
-	LCD_DispString_EN_CH(357, 79, "男", MARINE_BLUE, White, 32);
-	LCD_DispString_EN_CH(482, 79, "10", DEEP_SKY_BLUE, White, 32);
-	LCD_DispString_EN_CH(647, 79, "一级护理", BRIGHT_GREEN, White, 32);
+	
+	LCD_DispString_EN_CH(128, 0, "0", Red, White, 128);
+	Lcd_ColorBox(0, 120, 426, 8, BABY_BLUE);//字体太大超出了底边，加上这个矩形盖住
+	LCD_DispString_EN_CH(341, 79, "性别", MARINE_BLUE, White, 32);
+	LCD_DispString_EN_CH(466, 79, "年龄", DEEP_SKY_BLUE, White, 32);
+	LCD_DispString_EN_CH(647, 79, "护理等级", BRIGHT_GREEN, White, 32);
 
-	LCD_DispString_EN_CH(450, 0, "安倍禁食", DEEP_SKY_BLUE, White,64);
+	LCD_DispString_EN_CH(482, 0, "姓名", DEEP_SKY_BLUE, White,64);
 	LCD_DispString_EN_CH(10, 134, "住院号：", BABY_BLUE, Black, 32);
 	LCD_DispString_EN_CH(10, 194, "入院时间：", BABY_BLUE, Black, 32);
 	LCD_DispString_EN_CH(10, 254, "责任医生：", BABY_BLUE, Black, 32);

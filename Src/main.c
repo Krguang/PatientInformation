@@ -59,6 +59,7 @@
 /* USER CODE BEGIN Includes */
 #include "lcd.h"
 #include "spiflash.h"
+#include "parseData.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -120,7 +121,7 @@ int main(void)
   
   /* USER CODE BEGIN 2 */
 	InitBackGround();
-
+	HAL_UART_Receive_IT(&huart2, (uint8_t *)&recvTemp, 1);//开启下一次接收中断 
 
   /* USER CODE END 2 */
 
@@ -132,7 +133,7 @@ int main(void)
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
-
+		parseData();
 	}
   /* USER CODE END 3 */
 

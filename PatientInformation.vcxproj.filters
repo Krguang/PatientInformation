@@ -456,6 +456,9 @@
     <ClCompile Include="Src\spiflash_diskio.c">
       <Filter>Source files\Src</Filter>
     </ClCompile>
+    <ClCompile Include="Src\parseData.c">
+      <Filter>Source files\Src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Inc\ascii.h">
@@ -468,6 +471,9 @@
       <Filter>Header files\Inc</Filter>
     </ClInclude>
     <ClInclude Include="Inc\spiflash_diskio.h">
+      <Filter>Header files\Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inc\parseData.h">
       <Filter>Header files\Inc</Filter>
     </ClInclude>
   </ItemGroup>

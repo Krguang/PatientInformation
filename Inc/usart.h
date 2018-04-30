@@ -68,8 +68,8 @@ extern UART_HandleTypeDef huart2;
 
 extern char recvTemp;
 extern char USART_RX_BUF[];
-extern char GPS_Buffer[];
-extern volatile uint8_t gpsGetDataFlag;
+extern char Patient_Buffer[];
+extern volatile uint8_t GetDataFlag;
 
 /* USER CODE END Private defines */
 

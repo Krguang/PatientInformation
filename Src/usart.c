@@ -60,8 +60,8 @@
 
 char recvTemp;
 char USART_RX_BUF[USART_REC_LEN];
-char GPS_Buffer[USART_REC_LEN];
-volatile uint8_t gpsGetDataFlag;
+char Patient_Buffer[USART_REC_LEN];
+volatile uint8_t GetDataFlag;
 
 int _write(int fd, char *pBuffer, int size)
 {
@@ -168,7 +168,7 @@ void HAL_UART_MspInit(UART_HandleTypeDef* uartHandle)
     HAL_NVIC_SetPriority(USART2_IRQn, 0, 0);
     HAL_NVIC_EnableIRQ(USART2_IRQn);
   /* USER CODE BEGIN USART2_MspInit 1 */
-	HAL_UART_Receive_IT(&huart2, (uint8_t *)&recvTemp, 1);//开启下一次接收中断  
+	
   /* USER CODE END USART2_MspInit 1 */
   }
 }
@@ -226,36 +226,33 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *UartHandle) {
 	if (UartHandle->Instance == USART2)
 	{
 
-		HAL_UART_Transmit(&huart2, "hello\n", 8, 0xff);
+		if (recvTemp == '$')
+		{
+			recvpoint = 0;
+		}
 
-		//if (recvTemp == '$')
-		//{
-		//	recvpoint = 0;
-		//}
+		if (recvpoint >= USART_REC_LEN)
+		{
+			recvpoint = 0;
+		}
 
-		//USART_RX_BUF[recvpoint++] = recvTemp;
+		USART_RX_BUF[recvpoint++] = recvTemp;
 
-		//if (USART_RX_BUF[0] == '$' && USART_RX_BUF[4] == 'M' && USART_RX_BUF[5] == 'C')
-		//{
-		//	if (recvTemp == '\n')
-		//	{
-		//		memset(GPS_Buffer, 0, USART_REC_LEN);
-		//		memcpy(GPS_Buffer, USART_RX_BUF, recvpoint);
-		//		gpsGetDataFlag = 1;
-		//		printf("%s",GPS_Buffer);
-		//		recvpoint = 0;
-		//		memset(USART_RX_BUF, 0, USART_REC_LEN);      			
-		//	}
+		if (USART_RX_BUF[0] == '$' && USART_RX_BUF[2] == 'I' && USART_RX_BUF[3] == 'M')
+		{
+			if (recvTemp == '\n')
+			{
+				memset(Patient_Buffer, 0, USART_REC_LEN);
+				memcpy(Patient_Buffer, USART_RX_BUF, recvpoint);
+				GetDataFlag = 1;
+				printf("%s", Patient_Buffer);
+				//recvpoint = 0;
+				//memset(USART_RX_BUF, 0, USART_REC_LEN);      			
+			}
 
-		//}
-
-		//if (recvpoint >= USART_REC_LEN)
-		//{
-		//	recvpoint = USART_REC_LEN;
-		//}
+		}
 
 		HAL_UART_Receive_IT(&huart2, (uint8_t *)&recvTemp, 1);//开启下一次接收中断  
-
 	}
 
 }

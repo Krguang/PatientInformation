@@ -110,6 +110,7 @@
     <ClCompile Include="Src\gpio.c" />
     <ClCompile Include="Src\lcd.c" />
     <ClCompile Include="Src\main.c" />
+    <ClCompile Include="Src\parseData.c" />
     <ClCompile Include="Src\sdio.c" />
     <ClCompile Include="Src\spi.c" />
     <ClCompile Include="Src\spiflash.c" />
@@ -169,6 +170,7 @@
     <ClInclude Include="Inc\gpio.h" />
     <ClInclude Include="Inc\lcd.h" />
     <ClInclude Include="Inc\main.h" />
+    <ClInclude Include="Inc\parseData.h" />
     <ClInclude Include="Inc\sdio.h" />
     <ClInclude Include="Inc\spi.h" />
     <ClInclude Include="Inc\spiflash.h" />

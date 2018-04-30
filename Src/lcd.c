@@ -29,7 +29,7 @@ void InitBackGround() {
 	LCD_DispString_EN_CH(466, 79, "年龄", DEEP_SKY_BLUE, White, 32);
 	LCD_DispString_EN_CH(647, 79, "护理等级", BRIGHT_GREEN, White, 32);
 
-	LCD_DispString_EN_CH(482, 0, "姓名", DEEP_SKY_BLUE, White,64);
+	LCD_DispString_EN_CH(546, 0, "姓名", DEEP_SKY_BLUE, White,64);
 	LCD_DispString_EN_CH(10, 134, "住院号：", BABY_BLUE, Black, 32);
 	LCD_DispString_EN_CH(10, 194, "入院时间：", BABY_BLUE, Black, 32);
 	LCD_DispString_EN_CH(10, 254, "责任医生：", BABY_BLUE, Black, 32);

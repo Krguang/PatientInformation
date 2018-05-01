@@ -172,6 +172,10 @@ static void dataProcessing() {
 	}
 }
 
+
+//$PIM,9527,韩梅梅,男,15,一级护理,1812,2018-04-30,医生甲,护士乙,甲状体肿大,停止治疗,自费,禁食辛辣,真空隔离,收费,
+
+
 void parseData()
 {	
 	char *subString;

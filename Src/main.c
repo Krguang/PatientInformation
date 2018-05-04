@@ -122,7 +122,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
 	InitBackGround();
 	HAL_UART_Receive_IT(&huart2, (uint8_t *)&recvTemp, 1);//开启下一次接收中断 
-
+	HAL_GPIO_WritePin(NORMAL_MODE_GPIO_Port, NORMAL_MODE_Pin, GPIO_PIN_SET);
   /* USER CODE END 2 */
 
   /* Infinite loop */
